@@ -85,7 +85,7 @@ export default {
     },
     update: async (req: Request, res: Response): Promise<Response> => {
         try {
-            const user = await User.findOne({ _id: req.params.userId })
+            const user = await User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true })
 
             if (!user || !user?.id) {
                 return res.status(404).json({
@@ -96,12 +96,11 @@ export default {
                 });
             }
 
-            await User.updateOne({ _id: user._id }, req.body)
             return res.status(200).json({
                 data: {
                     userId: user.id,
                     username: user.username,
-                    role: req.body.role,
+                    role: user.role,
                 }
             });
         } catch (err) {
@@ -115,7 +114,8 @@ export default {
     },
     delete: async (req: Request, res: Response): Promise<Response> => {
         try {
-            const user = await User.findOne({ _id: req.params.id })
+            console.log(req.params)
+            const user = await User.findOne({ _id: req.params.userId })
             if (!user || !user?.id) {
                 return res.status(404).json({
                     error: {
