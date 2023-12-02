@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 
 import userRoutes from './routes/user';
 import authRoutes from './routes/auth';
+import coverageRoutes from './routes/coverage';
 
 const MONGO = process.env.MONGO || 'mongodb://root:root@localhost:27017/?authMechanism=DEFAULT';
 const HOST = process.env.HOST || 'https://localhost';
@@ -20,6 +21,7 @@ async function startup() {
   app.use(express.json());
   app.use('/users', userRoutes);
   app.use('/auth', authRoutes);
+  app.use('/coverage', coverageRoutes);
 
   await app.listen(PORT, () => {
     console.log(`${LOGMSG} Server is running at ${HOST}:${PORT}`);

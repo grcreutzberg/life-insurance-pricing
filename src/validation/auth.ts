@@ -1,5 +1,4 @@
 import * as yup from 'yup';
-import mongoose from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import User from '../models/user';
@@ -49,10 +48,10 @@ export default {
       });
     } catch (err) {
       const { errors } = err as yup.ValidationError
-      return res.status(400).json({
+      return res.status(500).json({
         error: {
-          code: '400',
-          message: errors
+          code: '500',
+          message: errors || err.message
         }
       });
     }
