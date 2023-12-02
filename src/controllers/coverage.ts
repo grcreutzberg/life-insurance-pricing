@@ -90,6 +90,9 @@ export default {
             });
         }
     },
+    getOneByName: async (name: string) => {
+        return (await Coverage.findOne({ name: name }));
+    },
     update: async (req: Request, res: Response): Promise<Response> => {
         try {
             const coverage = await Coverage.findOneAndUpdate(

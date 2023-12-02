@@ -7,5 +7,8 @@ export default {
         await Factor.create(item);
       });
     });
+  },
+  getFactor: async (age: number): Promise<string> => {
+    return (await Factor.findOne({ age: { $gte: age } })).factor;
   }
 }

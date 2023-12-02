@@ -8,6 +8,7 @@ import Occupations from './controllers/occupations';
 import userRoutes from './routes/user';
 import authRoutes from './routes/auth';
 import coverageRoutes from './routes/coverage';
+import quoteRoutes from './routes/quote';
 
 const MONGO = process.env.MONGO || 'mongodb://root:root@localhost:27017/?authMechanism=DEFAULT';
 const HOST = process.env.HOST || 'https://localhost';
@@ -34,7 +35,7 @@ async function server() {
   app.use('/users', userRoutes);
   app.use('/auth', authRoutes);
   app.use('/coverage', coverageRoutes);
-  //app.use('/quote', quoteRoutes);
+  app.use('/quote', quoteRoutes);
 
   await app.listen(PORT, () => {
     console.log(`${LOGMSG} Server is running at ${HOST}:${PORT}`);
