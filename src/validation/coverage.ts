@@ -2,7 +2,6 @@ import * as yup from 'yup';
 import mongoose from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
 import Coverage from '../models/coverage';
-import { get } from 'http';
 
 export default {
   coverage: async (req: Request, res: Response, next: NextFunction) => {
