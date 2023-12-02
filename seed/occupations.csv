@@ -1,0 +1,82 @@
+Code,Name,Active,Factor
+768110,Tapeceiro,TRUE,1.11
+252205,Auditor,TRUE,1.04
+716305,Vidraceiro,TRUE,0.90
+111325,"Juiz, desembargador",FALSE,1.09
+752105,Artesão,TRUE,0.93
+241040,Consultor,TRUE,1.01
+333115,Professor,TRUE,1.04
+782305,"Motorista, taxista",FALSE,1.13
+751010,Joalheiro,TRUE,1.13
+252105,Administrador,TRUE,1.05
+231315,Profissional de educação física,TRUE,0.91
+225125,Médico,TRUE,1.08
+262705,Músico,TRUE,1.10
+223280,Dentista,TRUE,1.02
+262905,Decorador,TRUE,1.10
+252105,Empreendedor,TRUE,1.07
+251510,Psicólogo,TRUE,0.96
+261805,Fotógrafo,TRUE,1.04
+221205,Biomédico,TRUE,1.05
+262315,Produtor Digital,TRUE,1.07
+410105,Supervisor,TRUE,1.13
+314110,Mecânico,TRUE,1.02
+114105,Político,TRUE,0.96
+214120,Arquiteto,TRUE,0.94
+241005,Advogado,TRUE,0.91
+516110,"Cabeleireiro, Manicure, Esteticista",TRUE,1.10
+252105,Empresário,TRUE,0.85
+354705,Representante comercial,TRUE,1.13
+251205,Economista,TRUE,0.96
+121005,"Diretor, gestor",TRUE,0.93
+223810,Fonaudiólogo,TRUE,1.04
+261420,Tradutor,TRUE,1.13
+252105,Microempreendedor,TRUE,0.87
+621005,Trabalhador Rural,TRUE,0.95
+221105,Biólogo,TRUE,1.11
+111415,Funcionário público,TRUE,0.89
+114105,líder sindical,TRUE,0.87
+763015,"Estilista, Costureira",TRUE,1.13
+354505,Corretor,TRUE,0.91
+223605,Fisioterapeuta,TRUE,0.94
+224135,Treinador,TRUE,1.14
+141415,Dono de loja,TRUE,1.08
+252105,Administrador,TRUE,1.09
+516505,Profissional da área de serviços funerários,TRUE,0.96
+333115,Profissional da educação,TRUE,0.88
+375105,Designer,TRUE,0.97
+354405,leiloeiro,TRUE,0.88
+261125,Jornalista,FALSE,1.05
+422105,"Secretário, recepcionista",TRUE,1.06
+223905,Terapeuta ocupacional,TRUE,0.91
+122205,Industriário,TRUE,0.91
+252210,Contador,TRUE,1.11
+251605,Assistente social,TRUE,0.91
+517310,"Segurança, vigilante",TRUE,0.93
+261520,Escritor,TRUE,0.98
+376305,Produtor de eventos,TRUE,0.91
+214305,Eletricista,TRUE,0.98
+223305,Médico Veterinário,TRUE,0.97
+771105,"marceneiro, serralheiro",TRUE,1.10
+202110,Engenheiro,TRUE,1.12
+521110,Vendedor autônomo,TRUE,1.10
+517410,"Porteiro, Zelador",TRUE,0.97
+715210,Pedreiro,TRUE,0.98
+512105,Trabalhador doméstico,TRUE,1.14
+511405,"Guia de turismo, Turismólogo",FALSE,1.15
+342125,Profissional de logística,TRUE,0.87
+519110,Entregador,TRUE,0.99
+252505,"Investidor, dono de imóveis",TRUE,1.07
+214120,Paisagista,TRUE,1.13
+421105,Atendente,TRUE,0.95
+354605,Corretor de imóvel,TRUE,1.12
+724110,Encanador,TRUE,1.09
+241225,Procurador,TRUE,1.07
+513205,Cozinheiro,TRUE,0.99
+241335,Tabelião,TRUE,0.92
+716610,Pintor,TRUE,0.98
+252540,Bancário,TRUE,1.03
+225125,Profissional da saúde,TRUE,1.07
+141410,Comerciário,TRUE,0.87
+114305,Religioso,FALSE,1.14
+253115,Profissional da área de comunicação,TRUE,0.99

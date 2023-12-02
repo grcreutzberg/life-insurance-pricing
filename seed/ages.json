@@ -1,0 +1,42 @@
+[
+  {
+    "age": 18,
+    "factor": 0.75
+  },
+  {
+    "age": 19,
+    "factor": 0.8
+  },
+  {
+    "age": 20,
+    "factor": 1
+  },
+  {
+    "age": 22,
+    "factor": 1.25
+  },
+  {
+    "age": 25,
+    "factor": 1.5
+  },
+  {
+    "age": 30,
+    "factor": 1.75
+  },
+  {
+    "age": 35,
+    "factor": 2
+  },
+  {
+    "age": 40,
+    "factor": 2.5
+  },
+  {
+    "age": 50,
+    "factor": 3
+  },
+  {
+    "age": 60,
+    "factor": 4
+  }
+]
