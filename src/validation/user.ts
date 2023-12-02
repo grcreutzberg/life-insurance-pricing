@@ -71,7 +71,7 @@ export default {
             });
         }
     },
-    role: async (req: Request, res: Response, next: NextFunction) => {
+    update: async (req: Request, res: Response, next: NextFunction) => {
         try {
             const schema = yup.object().shape({
                 role: yup.string().required().oneOf(['admin', 'user'], 'Role must be admin or user'),

@@ -34,7 +34,7 @@ export default {
         });
       }
 
-      const token = jwt.sign({ userId: user._id }, "TbuMXeL8WN6XS3Cn", { expiresIn: "1h" });
+      const token = jwt.sign({ userId: user._id, username: user.username, role: user.role }, 'TbuMXeL8WN6XS3Cn', { expiresIn: "1h" });
 
       return res.status(200).json({
         data: {
@@ -52,6 +52,28 @@ export default {
         error: {
           code: '500',
           message: errors || err.message
+        }
+      });
+    }
+  },
+  admin: async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const token = req.headers.authorization?.split(' ')[1];
+      const decoded = jwt.verify(token, 'TbuMXeL8WN6XS3Cn') as { role: string };
+      if (decoded.role == 'admin') {
+        return next();
+      }
+      return res.status(401).json({
+        error: {
+          code: '401',
+          message: 'Unauthorized'
+        }
+      });
+    } catch (err) {
+      return res.status(500).json({
+        error: {
+          code: '500',
+          message: err.message
         }
       });
     }

@@ -1,4 +1,5 @@
 import express from 'express';
+import expressJwt from 'express-jwt';
 import * as dotenv from 'dotenv';
 dotenv.config()
 import mongoose from 'mongoose'
