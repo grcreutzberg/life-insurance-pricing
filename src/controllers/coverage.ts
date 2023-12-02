@@ -31,12 +31,12 @@ export default {
             if (!coverage || !coverage?.id) {
                 return res.status(404).json({
                     error: {
-                      code: '404',
-                      message: 'Coverage not found'
+                        code: '404',
+                        message: 'Coverage not found'
                     }
-                  });
+                });
             }
-    
+
             return res.status(200).json({
                 data: {
                     coverageId: coverage.id,
@@ -60,15 +60,15 @@ export default {
         try {
             const coverages = await Coverage.find()
 
-            if(coverages.length === 0) {
+            if (coverages.length === 0) {
                 return res.status(404).json({
                     error: {
-                      code: '404',
-                      message: 'No coverage to return'
+                        code: '404',
+                        message: 'No coverage to return'
                     }
-                  });
+                });
             }
-    
+
             return res.status(200).json({
                 data: {
                     coverages: coverages.map((coverage) => ({
@@ -92,18 +92,21 @@ export default {
     },
     update: async (req: Request, res: Response): Promise<Response> => {
         try {
-            const coverage = await Coverage.findOne({ _id: req.params.coverageId })
-        
+            const coverage = await Coverage.findOneAndUpdate(
+                { _id: req.params.coverageId },
+                { ...req.body, active: req.body.active || true },
+                { new: true }
+            );
+
             if (!coverage || !coverage?.id) {
                 return res.status(404).json({
                     error: {
-                      code: '404',
-                      message: 'Coverage not found'
+                        code: '404',
+                        message: 'Coverage not found'
                     }
-                  });
+                });
             }
-    
-            await Coverage.updateOne({ _id: coverage._id }, req.body)
+
             return res.status(200).json({
                 data: {
                     coverageId: coverage.id,
@@ -124,17 +127,16 @@ export default {
     },
     delete: async (req: Request, res: Response): Promise<Response> => {
         try {
-            const coverage = await Coverage.findOne({ _id: req.params.coverageId })
+            const coverage = await Coverage.findOneAndUpdate({ _id: req.params.coverageId }, { active: false }, { new: true });
             if (!coverage || !coverage?.id) {
                 return res.status(404).json({
                     error: {
-                      code: '404',
-                      message: 'Coverage not found'
+                        code: '404',
+                        message: 'Coverage not found'
                     }
-                  });
+                });
             }
-    
-            await Coverage.updateOne({ _id: coverage._id }, { active: false })
+
             return res.status(200).json({
                 data: {
                     coverageId: coverage.id,
@@ -142,7 +144,7 @@ export default {
                     description: coverage.description,
                     capital: coverage.capital,
                     premium: coverage.premium,
-                    active: false
+                    active: coverage.active
                 }
             });
         } catch (err) {

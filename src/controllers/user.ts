@@ -114,7 +114,6 @@ export default {
     },
     delete: async (req: Request, res: Response): Promise<Response> => {
         try {
-            console.log(req.params)
             const user = await User.findOne({ _id: req.params.userId })
             if (!user || !user?.id) {
                 return res.status(404).json({
