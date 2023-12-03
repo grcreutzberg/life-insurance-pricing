@@ -130,7 +130,7 @@ export default {
     },
     delete: async (req: Request, res: Response): Promise<Response> => {
         try {
-            const coverage = await Coverage.findOneAndUpdate({ _id: req.params.coverageId }, { active: false }, { new: true });
+            const coverage = await Coverage.findOne({ _id: req.params.coverageId });
             if (!coverage || !coverage?.id) {
                 return res.status(404).json({
                     error: {
@@ -140,14 +140,19 @@ export default {
                 });
             }
 
+            if (req.query.hard) {
+                await Coverage.deleteOne({ _id: req.params.coverageId });
+            } else {
+                await Coverage.updateOne({ _id: req.params.coverageId }, { active: false });
+            }
+
             return res.status(200).json({
                 data: {
                     coverageId: coverage.id,
                     name: coverage.name,
                     description: coverage.description,
                     capital: coverage.capital,
-                    premium: coverage.premium,
-                    active: coverage.active
+                    premium: coverage.premium
                 }
             });
         } catch (err) {

@@ -141,6 +141,9 @@ export default {
           }
         });
       }
+      if (req.query.hard) {
+        return next();
+      }
       if (!coverage.active) {
         return res.status(400).json({
           error: {

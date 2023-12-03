@@ -1,6 +1,26 @@
 # Auto-generated
+dist
 node_modules
 package-lock.json
 
 # Environment
 .env
+
+# Tests
+/coverage
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

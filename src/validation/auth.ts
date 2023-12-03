@@ -34,18 +34,7 @@ export default {
         });
       }
 
-      const token = jwt.sign({ userId: user._id, username: user.username, role: user.role }, 'TbuMXeL8WN6XS3Cn', { expiresIn: "1h" });
-
-      return res.status(200).json({
-        data: {
-          user: {
-            userId: user._id,
-            username: req.body.username,
-            role: user.role
-          },
-          token
-        }
-      });
+      return next();
     } catch (err) {
       const { errors } = err as yup.ValidationError
       return res.status(500).json({

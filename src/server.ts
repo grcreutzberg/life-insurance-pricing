@@ -23,23 +23,25 @@ async function startup() {
   const agesFactor = require('../seed/ages.json');
   await Factor.setup(agesFactor);
 
-  const csv=require('csvtojson');
-  csv().fromFile('seed/occupations.csv').then(async (occupations)=>{
+  const csv = require('csvtojson');
+  csv().fromFile('seed/occupations.csv').then(async (occupations) => {
     await Occupations.setup(occupations);
   });
 }
 
-async function server() {
-  const app = express();
-  app.use(express.json());
-  app.use('/users', userRoutes);
-  app.use('/auth', authRoutes);
-  app.use('/coverage', coverageRoutes);
-  app.use('/quote', quoteRoutes);
+startup();
 
-  await app.listen(PORT, () => {
+const app = express();
+app.use(express.json());
+app.use('/users', userRoutes);
+app.use('/auth', authRoutes);
+app.use('/coverage', coverageRoutes);
+app.use('/quote', quoteRoutes);
+
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
     console.log(`${LOGMSG} Server is running at ${HOST}:${PORT}`);
   });
 }
-startup();
-server();
+
+export { app };
