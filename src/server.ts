@@ -2,6 +2,7 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 dotenv.config()
 import mongoose from 'mongoose';
+import { startup } from '../seed/startup';
 import Factor from './controllers/factor';
 import Occupations from './controllers/occupations';
 
@@ -19,17 +20,11 @@ mongoose.connect(MONGO, {})
   .then(() => console.log(`${LOGMSG} MongoDB connection established successfully`))
   .catch(err => console.log(`${LOGMSG} Failed to connect to MongoDB: ${err}`));
 
-async function startup() {
-  const agesFactor = require('../seed/ages.json');
-  await Factor.setup(agesFactor);
-
-  const csv = require('csvtojson');
-  csv().fromFile('seed/occupations.csv').then(async (occupations) => {
-    await Occupations.setup(occupations);
-  });
+async function start() {
+  await startup();
 }
 
-startup();
+start();
 
 const app = express();
 app.use(express.json());
