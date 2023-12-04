@@ -8,7 +8,7 @@ export default {
       });
     });
   },
-  getFactor: async (code: string) => {
-    return (await Ocuppation.findOne({ Code: code, Active: 'TRUE'})).Factor;
+  getFactor: async (code: string): Promise<string> => {
+    return ((await Ocuppation.findOne({ Code: code, Active: 'TRUE'}))?.Factor) || '1';
   }
 }

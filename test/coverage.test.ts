@@ -5,6 +5,16 @@ const token: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTY5
 let coverageId: string = '';
 
 describe('Coverage Routes', () => {
+  let server;
+
+  beforeAll(() => {
+    server = app.listen(3080);
+  });
+
+  afterAll(() => {
+    server.close();
+  });
+  
   it('Should create a new coverage', async () => {
     const response = await supertest(server)
       .post('/coverage')
@@ -123,15 +133,5 @@ describe('Coverage Routes', () => {
       .set('Authorization', `Bearer ${token}`);
 
     expect(response.status).toBe(400);
-  });
-
-  let server;
-
-  beforeAll(() => {
-    server = app.listen(3080);
-  });
-
-  afterAll(() => {
-    server.close();
   });
 });

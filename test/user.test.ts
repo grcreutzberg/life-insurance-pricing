@@ -5,6 +5,16 @@ const token: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTY5
 let userId: string = '';
 
 describe('User Routes', () => {
+  let server;
+
+  beforeAll(() => {
+    server = app.listen(3060);
+  });
+
+  afterAll(() => {
+    server.close();
+  });
+
   it('Should fail get user: Token not provided', async () => {
     const response = await supertest(server)
     .get('/users');
@@ -116,16 +126,5 @@ describe('User Routes', () => {
       .set('Authorization', `Bearer ${token}`);
 
     expect(response.status).toBe(200);
-  });
-
-
-  let server;
-
-  beforeAll(() => {
-    server = app.listen(3060);
-  });
-
-  afterAll(() => {
-    server.close();
   });
 });

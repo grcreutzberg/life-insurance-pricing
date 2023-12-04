@@ -2,6 +2,16 @@ import { app } from '../src/server';
 import supertest from 'supertest';
 
 describe('Auth Routes', () => {
+  let server;
+
+  beforeAll(() => {
+    server = app.listen(3070);
+  });
+
+  afterAll(() => {
+    app.listen().close();
+  });
+  
   it('Should login successfully', async () => {
     const response = await supertest(server)
       .post('/auth')
@@ -59,15 +69,5 @@ describe('Auth Routes', () => {
         message: "Password does not match"
       }
     });
-  });
-
-  let server;
-
-  beforeAll(() => {
-    server = app.listen(3070);
-  });
-
-  afterAll(() => {
-    server.close();
   });
 });
