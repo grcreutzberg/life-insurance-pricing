@@ -1,3 +1,10 @@
+/**
+ * Lida com a requisição POST para calcular a cotação do seguro de vida.
+ * 
+ * @param req - O objeto de requisição.
+ * @param res - O objeto de resposta.
+ * @returns A cotação calculada do seguro de vida.
+ */
 import express, { Request, Response } from 'express';
 import { expressjwt } from 'express-jwt';
 import validation from '../validation/quote';
